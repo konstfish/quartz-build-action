@@ -1,0 +1,25 @@
+name: 'Build Quartz for GitHub Pages'
+description: 'A simple GitHub Action for producing Quartz build artifacts'
+author: 'konstfish'
+inputs:
+  source:
+    description: 'The directory to build from'
+    required: true
+    default: ./
+  destination:
+    description: 'The directory to write output into'
+    required: false
+    default: ./_site
+  page_title:
+    description: 'Title of resulting Quartz Page'
+    required: false
+    default: Quartz
+  quartz_config:
+    description: 'Custom Quartz config file'
+    required: false
+  quartz_layout:
+    description: 'Custom Quartz layout file'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

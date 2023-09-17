@@ -1,0 +1,41 @@
+on: [push]
+
+jobs:
+  default_site:
+    runs-on: ubuntu-latest
+    name: Build Default Site
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Quartz Build Action
+        uses: ./
+        with:
+          source: example_projects/default/content
+          page_title: "Quartz WF"
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: default
+          path: _site/
+
+  complex_site:
+    runs-on: ubuntu-latest
+    name: Build Complex Site
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Quartz Build Action
+        uses: ./
+        with:
+          source: example_projects/custom_theme/content
+          quartz_config: example_projects/custom_theme/quartz.config.ts
+          quartz_layout: example_projects/custom_theme/quartz.layout.ts
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: themed
+          path: _site/
