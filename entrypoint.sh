@@ -12,7 +12,7 @@ else
     wget -O temp.quartz.config.ts https://raw.githubusercontent.com/jackyzha0/quartz/v4/quartz.config.ts
 
 
-    sed -e 's/pageTitle: "[^"]*"/pageTitle: "$INPUT_PAGE_TITLE"/' temp.quartz.config.ts > quartz.config.ts
+    sed -e 's/pageTitle: "[^"]*"/pageTitle: "'"$INPUT_PAGE_TITLE"'"/' temp.quartz.config.ts > quartz.config.ts
 fi
 
 if [ -n "$INPUT_QUARTZ_LAYOUT" ]; then
