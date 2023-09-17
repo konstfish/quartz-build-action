@@ -1,6 +1,9 @@
 name: 'Build Quartz for GitHub Pages'
 description: 'A simple GitHub Action for producing Quartz build artifacts'
 author: 'konstfish'
+branding:
+  icon: 'book-open'
+  color: 'purple'
 inputs:
   source:
     description: 'The directory to build from'
