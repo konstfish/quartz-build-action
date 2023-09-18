@@ -31,9 +31,10 @@ jobs:
         uses: ./
         with:
           source: example_projects/custom_theme/content
-          quartz_config: example_projects/custom_theme/quartz.config.ts
-          quartz_layout: example_projects/custom_theme/quartz.layout.ts
-
+          quartz_config: example_projects/custom_theme/config/quartz.config.ts
+          quartz_layout: example_projects/custom_theme/config/quartz.layout.ts
+          quartz_icon: example_projects/custom_theme/images/icon_mod.png
+          quartz_banner: example_projects/custom_theme/images/og-image_mod.png
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:

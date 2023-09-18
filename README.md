@@ -42,7 +42,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 ```
 
-Custom configuration & layout files can be included like this
+Custom configuration & layout files can be included like this.
 
 ```yaml
       - name: Build
@@ -60,5 +60,7 @@ Custom configuration & layout files can be included like this
 | `source`        | `./`      | The directory to build from        |
 | `destination`   | `./_site` | The directory to write output into |
 | `page_title`    | `Quartz`  | Title of resulting Quartz Page     |
-| `quartz_config` | ``        | Custom Quartz config file          |
-| `quartz_layout` | ``        | Custom Quartz layout file          |
+| `quartz_config` | ``        | Path to custom Quartz config file          |
+| `quartz_layout` | ``        | Path to custom Quartz layout file          |
+| `quartz_icon`   | ``        | Path to custom Quartz Page icon (png)      |
+| `quartz_banner` | ``        | Path to custom Quartz Page banner (png)    |

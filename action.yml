@@ -18,11 +18,18 @@ inputs:
     required: false
     default: Quartz
   quartz_config:
-    description: 'Custom Quartz config file'
+    description: 'Path to custom Quartz config file'
     required: false
   quartz_layout:
-    description: 'Custom Quartz layout file'
+    description: 'Path to custom Quartz layout file'
     required: false
+  quartz_icon:
+    description: 'Path to custom Quartz Page icon (png)'
+    required: false
+  quartz_banner:
+    description: 'Path to custom Quartz Page banner (png)'
+    required: false
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
