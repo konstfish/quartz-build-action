@@ -24,15 +24,16 @@ if [ -n "$INPUT_QUARTZ_LAYOUT" ]; then
     cp ${GITHUB_WORKSPACE}/$INPUT_QUARTZ_LAYOUT .
 fi
 
+# build
+npx quartz build -o $DESTINATION_DIRECTORY -v
+
 # icon/banner
 if [ -n "$INPUT_QUARTZ_ICON" ]; then
     echo "Copying custom layout"
-    cp ${GITHUB_WORKSPACE}/$INPUT_QUARTZ_ICON .
+    cp ${GITHUB_WORKSPACE}/$INPUT_QUARTZ_ICON $DESTINATION_DIRECTORY/static/icon.png
 fi
 
 if [ -n "$INPUT_QUARTZ_BANNER" ]; then
     echo "Copying custom banner"
-    cp ${GITHUB_WORKSPACE}/$INPUT_QUARTZ_BANNER .
+    cp ${GITHUB_WORKSPACE}/$INPUT_QUARTZ_BANNER $DESTINATION_DIRECTORY/static/og-image.png
 fi
-
-npx quartz build -o $DESTINATION_DIRECTORY -v
