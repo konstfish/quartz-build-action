@@ -13,6 +13,7 @@ jobs:
         with:
           source: example_projects/default/content
           page_title: "Quartz WF"
+          page_base_url: "example.com"
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3

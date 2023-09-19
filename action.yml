@@ -17,6 +17,10 @@ inputs:
     description: 'Title of resulting Quartz Page'
     required: false
     default: Quartz
+  page_base_url:
+    description: 'Base URL (Required when setting icon or banner)'
+    required: false
+    default: 'example.com'
   quartz_config:
     description: 'Path to custom Quartz config file'
     required: false
