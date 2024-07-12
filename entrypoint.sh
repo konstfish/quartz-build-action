@@ -5,8 +5,6 @@ cd /quartz
 SOURCE_DIRECTORY=${GITHUB_WORKSPACE}/$INPUT_SOURCE
 DESTINATION_DIRECTORY=${GITHUB_WORKSPACE}/$INPUT_DESTINATION
 
-mv $SOURCE_DIRECTORY/* /quartz/content/
-
 # config
 if [ -n "$INPUT_QUARTZ_CONFIG" ]; then
     echo "Copying custom config (${GITHUB_WORKSPACE}/$INPUT_QUARTZ_CONFIG -> $(pwd)/)"
@@ -25,10 +23,9 @@ if [ -n "$INPUT_QUARTZ_LAYOUT" ]; then
     cp ${GITHUB_WORKSPACE}/$INPUT_QUARTZ_LAYOUT .
 fi
 
-# build
-npx quartz build -o $DESTINATION_DIRECTORY -v
-
 # icon/banner
+mkdir -p $DESTINATION_DIRECTORY/static
+
 if [ -n "$INPUT_QUARTZ_ICON" ]; then
     echo "Copying custom layout (${GITHUB_WORKSPACE}/$INPUT_QUARTZ_ICON -> $DESTINATION_DIRECTORY/static/icon.png)"
     cp ${GITHUB_WORKSPACE}/$INPUT_QUARTZ_ICON $DESTINATION_DIRECTORY/static/icon.png
@@ -38,3 +35,9 @@ if [ -n "$INPUT_QUARTZ_BANNER" ]; then
     echo "Copying custom banner (${GITHUB_WORKSPACE}/$INPUT_QUARTZ_BANNER -> $DESTINATION_DIRECTORY/static/og-image.png)"
     cp ${GITHUB_WORKSPACE}/$INPUT_QUARTZ_BANNER $DESTINATION_DIRECTORY/static/og-image.png
 fi
+
+# content
+mv $SOURCE_DIRECTORY/* /quartz/content/
+
+# build
+npx quartz build -o $DESTINATION_DIRECTORY -v
