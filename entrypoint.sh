@@ -24,16 +24,14 @@ if [ -n "$INPUT_QUARTZ_LAYOUT" ]; then
 fi
 
 # icon/banner
-mkdir -p $DESTINATION_DIRECTORY/static
-
 if [ -n "$INPUT_QUARTZ_ICON" ]; then
     echo "Copying custom layout (${GITHUB_WORKSPACE}/$INPUT_QUARTZ_ICON -> $DESTINATION_DIRECTORY/static/icon.png)"
-    cp ${GITHUB_WORKSPACE}/$INPUT_QUARTZ_ICON $DESTINATION_DIRECTORY/static/icon.png
+    cp ${GITHUB_WORKSPACE}/$INPUT_QUARTZ_ICON /quartz/quartz/static/icon.png
 fi
 
 if [ -n "$INPUT_QUARTZ_BANNER" ]; then
     echo "Copying custom banner (${GITHUB_WORKSPACE}/$INPUT_QUARTZ_BANNER -> $DESTINATION_DIRECTORY/static/og-image.png)"
-    cp ${GITHUB_WORKSPACE}/$INPUT_QUARTZ_BANNER $DESTINATION_DIRECTORY/static/og-image.png
+    cp ${GITHUB_WORKSPACE}/$INPUT_QUARTZ_BANNER /quartz/quartz/static/og-image.png
 fi
 
 # content
