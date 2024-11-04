@@ -5,7 +5,7 @@ WORKDIR /quartz
 
 RUN apk add git
 
-RUN git clone https://github.com/jackyzha0/quartz.git /quartz && cd quartz
+RUN git clone https://github.com/konstfish/quartz.git /quartz && cd quartz
 
 RUN npm i
 # required as directory was removed from original quartz repo
