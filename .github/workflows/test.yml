@@ -6,7 +6,7 @@ jobs:
     name: Build Default Site
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Quartz Build Action
         uses: ./
@@ -16,7 +16,7 @@ jobs:
           page_base_url: "example.com"
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: default
           path: _site/
@@ -26,7 +26,7 @@ jobs:
     name: Build Complex Site
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Quartz Build Action
         uses: ./
@@ -37,7 +37,7 @@ jobs:
           quartz_icon: example_projects/custom_theme/images/icon_mod.png
           quartz_banner: example_projects/custom_theme/images/og-image_mod.png
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: themed
           path: _site/
