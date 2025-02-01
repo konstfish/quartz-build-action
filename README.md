@@ -31,7 +31,7 @@ jobs:
           # page title to be displayed in the browser
           page_title: "Quartz"
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
   deploy:
     runs-on: ubuntu-latest
     needs: build
