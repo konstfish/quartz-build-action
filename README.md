@@ -4,7 +4,7 @@ GitHub Action to build [Quartz](https://quartz.jzhao.xyz/) documentation sites d
 
 ## Usage
 
-A basic GitHub Pages deployment workflow using the `quartz-build-action` looks like this:
+Assuming you have a repository with Markdown files located at `docs`, a basic GitHub Pages deployment without any custom config using the `quartz-build-action` looks like this:
 
 ```yaml
 name: Build Quartz Site
@@ -26,7 +26,9 @@ jobs:
       - name: Build
         uses: konstfish/quartz-build-action@v3
         with:
-          source: example_projects/default/content
+          # specify source folder
+          source: docs
+          # page title to be displayed in the browser
           page_title: "Quartz"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
@@ -48,10 +50,18 @@ Custom configuration & layout files can be included like this:
 - name: Build
   uses: konstfish/quartz-build-action@v3
   with:
-    source: example_projects/custom_theme/content
-    quartz_config: example_projects/custom_theme/quartz.config.ts
-    quartz_layout: example_projects/custom_theme/quartz.layout.ts
+    # markdown source folder
+    source: docs
+    # quartz config files, I like keeping them in my .github folder to reduce clutter
+    # see https://quartz.jzhao.xyz/configuration & https://quartz.jzhao.xyz/layout respectively
+    quartz_config: .github/quartz/quartz.config.ts
+    quartz_layout: .github/quartz/quartz.layout.ts
+    # quartz static content
+    quartz_icon:   .github/quartz/favicon.png
+    quartz_banner: .github/quartz/og_image.png
 ```
+
+A productive example of a workflow using this action can be found [here](https://github.com/konstfish/shoal/blob/main/.github/workflows/publish_blog.yaml).
 
 ### Action inputs
 
