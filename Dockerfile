@@ -1,7 +1,7 @@
 ARG NODE_VERSION=20
 FROM node:${NODE_VERSION}-alpine
 
-RUN apk add --no-cache git \
+RUN apk add --no-cache git coreutils \
     && git clone --depth 1 https://github.com/jackyzha0/quartz.git /quartz \
     && cd /quartz \
     && mkdir -p content \
