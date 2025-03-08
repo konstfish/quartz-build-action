@@ -24,7 +24,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build
-        uses: konstfish/quartz-build-action@v3
+        uses: konstfish/quartz-build-action@v4
         with:
           # specify source folder
           source: docs
@@ -48,7 +48,7 @@ Custom configuration & layout files can be included like this:
 
 ```yaml
 - name: Build
-  uses: konstfish/quartz-build-action@v3
+  uses: konstfish/quartz-build-action@v4
   with:
     # markdown source folder
     source: docs
