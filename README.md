@@ -24,7 +24,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build
-        uses: konstfish/quartz-build-action@v4
+        uses: konstfish/quartz-build-action@v5
         with:
           # specify source folder
           source: docs
@@ -48,7 +48,7 @@ Custom configuration & layout files can be included like this:
 
 ```yaml
 - name: Build
-  uses: konstfish/quartz-build-action@v4
+  uses: konstfish/quartz-build-action@v5
   with:
     # markdown source folder
     source: docs
@@ -57,7 +57,7 @@ Custom configuration & layout files can be included like this:
     quartz_config: .github/quartz/quartz.config.ts
     quartz_layout: .github/quartz/quartz.layout.ts
     # quartz static content
-    quartz_icon:   .github/quartz/favicon.png
+    quartz_icon: .github/quartz/favicon.png
     quartz_banner: .github/quartz/og_image.png
     # custom css
     quartz_custom_css: .github/quartz/custom.scss
@@ -67,13 +67,13 @@ A productive example of a workflow using this action can be found [here](https:/
 
 ### Action inputs
 
-| Input           | Default   | Description                             |
-| --------------- | --------- | --------------------------------------- |
-| `source`        | `./`      | The directory to build from             |
-| `destination`   | `./_site` | The directory to write output into      |
-| `page_title`    | `Quartz`  | Title of resulting Quartz Page          |
-| `quartz_config` | ``        | Path to custom Quartz config file       |
-| `quartz_layout` | ``        | Path to custom Quartz layout file       |
-| `quartz_icon`   | ``        | Path to custom Quartz Page icon (png)   |
-| `quartz_banner` | ``        | Path to custom Quartz Page banner (png) |
-| `quartz_custom_css`    | ``        | Path to custom Quartz Page css |
+| Input               | Default   | Description                                                                                             |
+| ------------------- | --------- | ------------------------------------------------------------------------------------------------------- |
+| `source`            | `./`      | The directory to build from                                                                             |
+| `destination`       | `./_site` | The directory to write output into                                                                      |
+| `page_title`        | `Quartz`  | Title of resulting Quartz Page                                                                          |
+| `quartz_config`     | ``        | Path to custom Quartz config file                                                                       |
+| `quartz_layout`     | ``        | Path to custom Quartz layout file                                                                       |
+| `quartz_icon`       | ``        | Path to custom Quartz Page icon (png)                                                                   |
+| `quartz_banner`     | ``        | Path to custom Quartz Page banner (png)                                                                 |
+| `quartz_custom_css` | ``        | Path to custom [Quartz Page css](https://github.com/jackyzha0/quartz/blob/v4/quartz/styles/custom.scss) |
