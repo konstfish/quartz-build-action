@@ -33,7 +33,7 @@ inputs:
   quartz_banner:
     description: 'Path to custom Quartz Page banner (png)'
     required: false
-  custom_css:
+  quartz_custom_css:
     description: 'Path to custom Quartz Page css'
     required: false
 

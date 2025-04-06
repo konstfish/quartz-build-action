@@ -35,9 +35,9 @@ if [ -n "$INPUT_QUARTZ_BANNER" ]; then
 fi
 
 # custom.css
-if [ -n "$INPUT_CUSTOM_CSS" ]; then
-    echo "Copying custom css (${GITHUB_WORKSPACE}/$INPUT_CUSTOM_CSS -> $(pwd)/styles/custom.scss)"
-    cp ${GITHUB_WORKSPACE}/$INPUT_CUSTOM_CSS /quartz/quartz/styles/custom.scss
+if [ -n "$INPUT_QUARTZ_CUSTOM_CSS" ]; then
+    echo "Copying custom css (${GITHUB_WORKSPACE}/$INPUT_QUARTZ_CUSTOM_CSS -> $(pwd)/styles/custom.scss)"
+    cp ${GITHUB_WORKSPACE}/$INPUT_QUARTZ_CUSTOM_CSS /quartz/quartz/styles/custom.scss
 fi
 
 # content
