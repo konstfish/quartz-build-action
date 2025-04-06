@@ -59,6 +59,8 @@ Custom configuration & layout files can be included like this:
     # quartz static content
     quartz_icon:   .github/quartz/favicon.png
     quartz_banner: .github/quartz/og_image.png
+    # custom css
+    quartz_custom_css: .github/quartz/custom.scss
 ```
 
 A productive example of a workflow using this action can be found [here](https://github.com/konstfish/shoal/blob/main/.github/workflows/publish_blog.yaml).
@@ -74,3 +76,4 @@ A productive example of a workflow using this action can be found [here](https:/
 | `quartz_layout` | ``        | Path to custom Quartz layout file       |
 | `quartz_icon`   | ``        | Path to custom Quartz Page icon (png)   |
 | `quartz_banner` | ``        | Path to custom Quartz Page banner (png) |
+| `quartz_custom_css`    | ``        | Path to custom Quartz Page css |
