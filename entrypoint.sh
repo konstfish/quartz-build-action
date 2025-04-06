@@ -34,6 +34,12 @@ if [ -n "$INPUT_QUARTZ_BANNER" ]; then
     cp ${GITHUB_WORKSPACE}/$INPUT_QUARTZ_BANNER /quartz/quartz/static/og-image.png
 fi
 
+# custom.css
+if [ -n "$INPUT_CUSTOM_CSS" ]; then
+    echo "Copying custom css (${GITHUB_WORKSPACE}/$INPUT_CUSTOM_CSS -> $(pwd)/styles/custom.scss)"
+    cp ${GITHUB_WORKSPACE}/$INPUT_CUSTOM_CSS /quartz/quartz/styles/custom.scss
+fi
+
 # content
 mv $SOURCE_DIRECTORY/* /quartz/content/
 

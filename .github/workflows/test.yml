@@ -36,6 +36,7 @@ jobs:
           quartz_layout: example_projects/custom_theme/config/quartz.layout.ts
           quartz_icon: example_projects/custom_theme/images/icon_mod.png
           quartz_banner: example_projects/custom_theme/images/og-image_mod.png
+          custom_css: example_projects/custom_theme/config/custom.scss
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
