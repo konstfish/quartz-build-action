@@ -73,8 +73,8 @@ Custom forks of quartz (for plugins or other modifications) can be used like thi
     source: docs
     # custom quartz repository
     quartz_repo: https://github.com/konstfish/quartz.git
-    # branch, tag, commit
-    quartz_repo_ref: dd6bd498db25344b2cccf56abfb656576a496d38
+    # branch, tag
+    quartz_repo_ref: v4
 ```
 
 
