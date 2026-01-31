@@ -1,6 +1,17 @@
 #!/bin/sh
 
+set -e
+
+QUARTZ_REPO=${INPUT_QUARTZ_REPO:-https://github.com/jackyzha0/quartz.git}
+QUARTZ_REF=${INPUT_QUARTZ_REPO_REF:-v4}
+
+echo "Cloning Quartz from ${QUARTZ_REPO} (ref: ${QUARTZ_REF})"
+git clone --depth 1 --branch "${QUARTZ_REF}" "${QUARTZ_REPO}" /quartz
+
 cd /quartz
+
+npm ci
+npx quartz create -X new -l shortest
 
 SOURCE_DIRECTORY=${GITHUB_WORKSPACE}/$INPUT_SOURCE
 DESTINATION_DIRECTORY=${GITHUB_WORKSPACE}/$INPUT_DESTINATION
@@ -10,11 +21,9 @@ if [ -n "$INPUT_QUARTZ_CONFIG" ]; then
     echo "Copying custom config (${GITHUB_WORKSPACE}/$INPUT_QUARTZ_CONFIG -> $(pwd)/)"
     cp ${GITHUB_WORKSPACE}/$INPUT_QUARTZ_CONFIG .
 else
-    wget -O temp.quartz.config.ts https://raw.githubusercontent.com/jackyzha0/quartz/v4/quartz.config.ts
-
-    sed -e 's/pageTitle: "[^"]*"/pageTitle: "'"$INPUT_PAGE_TITLE"'"/' \
-        -e 's/baseUrl: "[^"]*"/baseUrl: "'"$INPUT_PAGE_BASE_URL"'"/' \
-        temp.quartz.config.ts > quartz.config.ts
+    sed -i -e 's/pageTitle: "[^"]*"/pageTitle: "'"$INPUT_PAGE_TITLE"'"/' \
+           -e 's/baseUrl: "[^"]*"/baseUrl: "'"$INPUT_PAGE_BASE_URL"'"/' \
+           quartz.config.ts
 fi
 
 # theme

@@ -63,17 +63,34 @@ Custom configuration & layout files can be included like this:
     quartz_custom_css: .github/quartz/custom.scss
 ```
 
+Custom forks of quartz (for plugins or other modifications) can be used like this:
+
+```yaml
+- name: Build
+  uses: konstfish/quartz-build-action@v6
+  with:
+    # markdown source folder
+    source: docs
+    # custom quartz repository
+    quartz_repo: https://github.com/konstfish/quartz.git
+    # branch, tag, commit
+    quartz_repo_ref: dd6bd498db25344b2cccf56abfb656576a496d38
+```
+
+
 A productive example of a workflow using this action can be found [here](https://github.com/konstfish/shoal/blob/main/.github/workflows/publish_blog.yaml).
 
 ### Action inputs
 
-| Input               | Default   | Description                                                                                             |
-| ------------------- | --------- | ------------------------------------------------------------------------------------------------------- |
-| `source`            | `./`      | The directory to build from                                                                             |
-| `destination`       | `./_site` | The directory to write output into                                                                      |
-| `page_title`        | `Quartz`  | Title of resulting Quartz Page                                                                          |
-| `quartz_config`     | ``        | Path to custom Quartz config file                                                                       |
-| `quartz_layout`     | ``        | Path to custom Quartz layout file                                                                       |
-| `quartz_icon`       | ``        | Path to custom Quartz Page icon (png)                                                                   |
-| `quartz_banner`     | ``        | Path to custom Quartz Page banner (png)                                                                 |
-| `quartz_custom_css` | ``        | Path to custom [Quartz Page css](https://github.com/jackyzha0/quartz/blob/v4/quartz/styles/custom.scss) |
+| Input               | Default                                   | Description                                                                                             |
+| ------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `source`            | `./`                                      | The directory to build from                                                                             |
+| `destination`       | `./_site`                                 | The directory to write output into                                                                      |
+| `page_title`        | `Quartz`                                  | Title of resulting Quartz Page                                                                          |
+| `quartz_config`     | ``                                        | Path to custom Quartz config file                                                                       |
+| `quartz_layout`     | ``                                        | Path to custom Quartz layout file                                                                       |
+| `quartz_icon`       | ``                                        | Path to custom Quartz Page icon (png)                                                                   |
+| `quartz_banner`     | ``                                        | Path to custom Quartz Page banner (png)                                                                 |
+| `quartz_custom_css` | ``                                        | Path to custom [Quartz Page css](https://github.com/jackyzha0/quartz/blob/v4/quartz/styles/custom.scss) |
+| `quartz_repo`       | `https://github.com/jackyzha0/quartz.git` | Git URL of the Quartz repository to use                                                                 |
+| `quartz_repo_ref`   | `v4`                                      | Git ref to checkout                                                                                     |

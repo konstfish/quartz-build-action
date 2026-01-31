@@ -1,12 +1,7 @@
 ARG NODE_VERSION=22
 FROM node:${NODE_VERSION}-alpine
 
-RUN apk add --no-cache git coreutils \
-    && git clone --depth 1 https://github.com/jackyzha0/quartz.git /quartz \
-    && cd /quartz \
-    && mkdir -p content \
-    && npm ci --only=production \
-    && npx quartz create -X new -l shortest
+RUN apk add --no-cache git coreutils
 
 WORKDIR /quartz
 

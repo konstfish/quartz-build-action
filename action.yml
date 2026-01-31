@@ -5,6 +5,14 @@ branding:
   icon: 'book-open'
   color: 'purple'
 inputs:
+  quartz_repo:
+    description: 'Git URL of the Quartz repository to use'
+    required: false
+    default: 'https://github.com/jackyzha0/quartz.git'
+  quartz_repo_ref:
+    description: 'Git ref to checkout'
+    required: false
+    default: 'v4'
   source:
     description: 'The directory to build from'
     required: true
