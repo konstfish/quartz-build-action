@@ -42,3 +42,27 @@ jobs:
         with:
           name: themed
           path: _site/
+    
+  custom_quartz:
+    runs-on: ubuntu-latest
+    name: Build with Custom Quartz Repo
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Quartz Build Action
+        uses: ./
+        with:
+          source: example_projects/default/content
+          page_title: "Quartz Custom"
+          page_base_url: "example.com"
+          # custom quartz repository
+          quartz_repo: https://github.com/konstfish/quartz.git
+          # branch, tag
+          quartz_repo_ref: v4
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: custom_repo
+          path: _site/
