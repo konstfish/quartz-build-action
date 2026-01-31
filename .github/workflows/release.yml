@@ -1,0 +1,47 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version number for the release (without "v" prefix)'
+        required: true
+        type: string
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate release notes
+        id: notes
+        run: |
+          PREV_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+
+          if [ -z "$PREV_TAG" ]; then
+            COMMITS=$(git log --pretty=format:"- %s (%h)" --reverse)
+          else
+            COMMITS=$(git log ${PREV_TAG}..HEAD --pretty=format:"- %s (%h)" --reverse)
+          fi
+
+          echo "$COMMITS" > release_notes.txt
+
+      - name: Create tag and release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION="v${{ inputs.version }}"
+
+          git tag "$VERSION"
+          git push origin "$VERSION"
+
+          gh release create "$VERSION" \
+            --title "$VERSION" \
+            --notes-file release_notes.txt
