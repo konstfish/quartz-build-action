@@ -64,5 +64,5 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: default
+          name: custom_repo
           path: _site/
